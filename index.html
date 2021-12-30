@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>8 Bit | Chris Laskey</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=3.0; user-scalable=1;" />
+	
+	<style>
+	
+	/* Universal
+	=============================================================================================*/
+	html, body{
+		background:#fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjgyM0QyN0RFN0M2QjExRTBBQkY2RTkyQzlBQUY1NTRGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjgyM0QyN0RGN0M2QjExRTBBQkY2RTkyQzlBQUY1NTRGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODIzRDI3REM3QzZCMTFFMEFCRjZFOTJDOUFBRjU1NEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODIzRDI3REQ3QzZCMTFFMEFCRjZFOTJDOUFBRjU1NEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7ceKtpAAAAJElEQVR42mL8//8/AzJggjHev3//H0UACBhBBAtUhhEmChBgAJeCCqHpdTgpAAAAAElFTkSuQmCC') repeat;
+		color:#444;
+		margin:0;
+		padding:0;
+	}
+	
+	a{
+		color:#aaa;
+	}
+		
+		a:hover{
+			color:#0e6293;
+		}
+	
+	h1{
+		color: #484848;
+		display: block;
+		font:bold 70px/80px Helvetica, Arial, sans-serif;
+		margin:0 0 20px 0;
+	}
+	
+	h2{
+		color:#666;
+		font:normal 30px/34px Georgia, serif;
+		font-style:italic;
+		margin:0;
+	}
+	
+	p{
+		color:#aaa;
+		margin:0 0 1em 0;
+	}
+	
+	.clear{
+		clear:both;
+	}
+	
+	/* Structure and Content
+	=============================================================================================*/
+	.wrapper{
+		margin:0 auto;
+		min-width:400px;
+		padding:2% 0;
+		width:80%;
+	}
+		
+		div#header{
+			height:90px;
+			position:relative;
+		}
+			
+			div#header h1{
+				left:0px;
+				position:absolute;
+				text-shadow:5px 3px 0px #ddd;
+				top:0px;
+			}
+			
+			div#header h2{
+				left:154px;
+				position:absolute;
+				text-shadow:2px 3px 0px #ddd;
+				top:24px;
+			}
+		
+		div#main{
+			background:#fff;
+			border:1px solid #eee;
+			overflow:auto;
+			padding:20px;
+		}
+			
+			p#answer{
+				background:#fff;
+				color:#222;
+				display:block;
+				font:22px/22px Georgia, serif;
+				margin:0;
+				padding:8px 5px;
+			}
+				
+				p#answer span{
+					color:#d00000;
+					border-bottom:1px dotted #bbb;
+					font-weight:bold;
+					text-shadow:2px 1px 0px #ccc;
+				}
+				div#guess{
+					border-left:0px solid #fff;
+					font:bold 40px/60px Helvetica, Arial, sans-serif;
+					height:60px;
+					margin:0;
+					padding:0;
+				}
+			
+			div#guess span{
+				border-bottom:2px solid #fff;
+				color:#ccc;
+				display:block;
+				float:left;
+				height:60px;
+				margin:0 14px 0 0;
+				padding:0;
+				text-align:center;
+				width:30px;
+			}
+			
+			div#guess span.guessed{
+				color:#555;
+			}
+			
+			div#guess span.focus{
+				border-bottom:2px solid #ccc;
+			}
+			
+		div#buttons{
+			height:48px;
+			margin:10px 0 10px 0;
+		}
+			
+			ul.buttons{
+				display:block;
+				height:48px;
+				margin:0;
+				padding:0;
+			}
+				
+				ul.buttons li{
+					display:block;
+					float:right;
+					height:48px;
+					margin:0 0 0 2px;
+					width:48px;
+				}
+					
+					a.button{
+						background-color: #eee;
+						color:#333;
+						display:block;
+						font:bold 22px/46px Helvetica, Arial, sans-serif;
+						float:left;
+						height:46px;
+						margin:0;
+						padding:0;
+						overflow:hidden;
+						text-align:center;
+						width:46px;
+						
+						border:1px solid #eee;
+						border-radius: 4px;
+						-khtml-border-radius: 4px;
+						-moz-border-radius: 4px;
+						-webkit-border-radius: 4px;
+					}
+						
+						a.button:hover{
+							background-color: #ffb522;
+							background-image: -moz-linear-gradient(100% 100% 90deg, #ff971d, #ffb522);
+							background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffb522), to(#ff971d));
+							filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb522', endColorstr='#ff971d');
+							
+							border:1px solid #ffb522;
+						}
+						
+						a.button img{
+							border:none;
+							height:100%;
+							width:100%;
+						}
+							
+							a.settings img{
+								height:80%;
+								padding:12% 0 0 0%;
+								width:80%;
+							}
+		
+		div#settings{
+			background:#fff;
+			border:1px solid #eee;
+			display:none;
+			overflow:auto;
+			padding:20px;
+		}
+		
+	</style>
+	
+	
+	<script src="https://www.google.com/jsapi?key=ABQIAAAADkKUXPBWpwgPquP3GHiDdxQShGq_0LDOaKDDDaSUFaFrJttFABSjRqBVj2qExxzbQXqhwEySmO0e1g" type="text/javascript"></script>
+	<script language="Javascript" type="text/javascript">
+	//<![CDATA[
+	
+	/**
+	 * To Do:
+	 *
+	 * Add keypad 0 and 1
+	 */
+		
+	//Global Functions (objects used to create a pseudo namespaces)
+	var answer = {}
+	var buttons = {}
+	var guess = {}
+	var keyboard = {}
+	var settings = {}
+	
+	//Init Function
+	function init() {
+		
+		//Set jQuery no conflict mode
+		jQuery.noConflict();
+		
+		//Set variables
+		buttons.container = jQuery('ul.buttons');
+		buttons.left = jQuery('a.keyboard_left');
+		buttons.up = jQuery('a.keyboard_up');
+		buttons.down = jQuery('a.keyboard_down');
+		buttons.right = jQuery('a.keyboard_right');
+		buttons.settings = jQuery('a.settings');
+		answer.container = jQuery('#answer span');
+		guess.container = jQuery('#guess');
+		settings.bits = {};
+		settings.bits.current = 8;
+		settings.bits.maximum = 32;
+		settings.container = jQuery('#settings');
+		
+		//Setup
+		settings.setup();
+		
+		//Bindings
+		buttons.bind();
+		keyboard.bind();
+		settings.bind();
+		
+		//Events
+		answer.new_answer();
+		
+	}
+	
+	//Button Functions
+	buttons.bind = function(){
+		buttons.left.click(function(){ keyboard.left(); });
+		buttons.up.click(function(){ keyboard.up(); });
+		buttons.down.click(function(){ keyboard.down(); });
+		buttons.right.click(function(){ keyboard.right(); });
+		buttons.settings.click(function(){ settings.display(); })
+	}
+	
+	//Keyboard Functions
+	keyboard.bind = function(){
+		jQuery('body').bind('keydown', function(e){
+			var code = e.keyCode || e.which;
+			if( code == 38 || code == 87 || code == 49 ){ keyboard.up(); } //Switch, Y U So Ugly?
+			else if( code == 40 || code == 83 || code == 48 ){ keyboard.down(); }
+			else if( code == 37 || code == 65 ){ keyboard.left(); }
+			else if( code == 39 || code == 68 ){ keyboard.right(); }
+		});
+	}
+	
+	keyboard.up = function(){
+		guess.set_value_at_ordinal(1);
+	}
+	
+	keyboard.down = function(){
+		guess.set_value_at_ordinal(0);
+	}
+	
+	keyboard.left = function(){
+		if( guess.ordinal != 0 ){
+			guess.ordinal--;
+			guess.set_focus();
+		}
+	}
+	
+	keyboard.right = function(){
+		if( guess.ordinal < (settings.bits.current - 1) ){
+			guess.ordinal++;
+			guess.set_focus();
+		}
+	}
+	
+	//Guess Functions
+	guess.bind = function(){
+		guess.container
+			.find('span')
+				.each(function(e){
+					jQuery(this).bind('click', function(){
+						guess.ordinal = e;
+						console.log(guess.ordinal);
+						guess.set_focus();
+					});
+				});
+	}
+	
+	guess.new_guess = function(){
+		var spans = '';
+		for( var i = 0; i < settings.bits.current; i++){
+			spans += "<span>0</span>\n				";
+		}
+		guess.container.html(spans);
+		guess.ordinal = 0;
+		guess.set_focus();
+		guess.bind();
+	}
+	
+	guess.set_value_at_ordinal = function(i){
+		guess.container
+			.children('span')
+				.eq( guess.ordinal )
+					.text(i)
+					.addClass('guessed');
+		if( guess.ordinal == (settings.bits.current - 1) ){
+			guess.verify();
+		}else{ 
+			guess.ordinal++;
+			guess.set_focus();
+		}
+	}
+	
+	guess.set_focus = function(){
+		guess.container
+			.children('span')
+				.removeClass('focus')
+				.eq( guess.ordinal )
+					.addClass('focus');
+	}
+	
+	guess.verify = function(){
+		
+		//Convert answer to binary string
+		var binary = answer.current.toString(2);
+		
+		//Pad binary string if needed
+		if( binary.length !== settings.bits.current ){
+			
+			//Creates an array of a set length, then join()'s the empty pieces with the string to be repeated.
+			var pad = new Array(settings.bits.current + 1).join('0');
+			
+			//Prepend to the front then take a reverse slice!
+			binary = (pad + binary).slice('-' + settings.bits.current);
+			
+		}
+		
+		if( guess.return_guess() !== binary ){
+			
+			//* Show what's wrong?
+			
+		}else{
+			answer.new_answer();
+		}
+	}
+	
+	guess.return_guess = function(){
+		var guess = '';
+		jQuery('#guess span').each(function(){
+			guess += jQuery(this).text();
+		});
+		return guess;
+	};
+	
+	//Answer Functions
+	answer.new_answer = function(){
+		answer.current = Math.floor(Math.random() * Math.pow(2, settings.bits.current));
+		answer.container.text( answer.current );
+		guess.new_guess();
+	}
+	
+	//Settings Functions
+	settings.setup = function(){
+		var options = '';
+		for( var i = 1; i <= settings.bits.maximum; i++ ){
+			var selected = (i == settings.bits.current) ? 'selected="selected"' : '';
+			options += '<option '+selected+' value="'+i+'">'+i+'</option>';
+		}
+		settings.container
+			.find('select[name="bits"]')
+				.html(options);
+	}
+	
+	settings.bind = function(){
+		settings.container
+			.find('select[name="bits"]')
+				.bind('change', function(e){
+					settings.bits.current = e.currentTarget.selectedIndex + 1;
+					answer.new_answer();
+					buttons.settings.trigger('click');
+				});
+	}
+	
+	settings.display = function(){
+		(settings.container.css('display') == 'block') ? settings.container.css('display', 'none') : settings.container.css('display', 'block');
+	}
+	
+	//Google Init Functions
+	google.load("jquery", "1.6.1");
+	google.setOnLoadCallback(init);
+	
+	//]]>
+	</script>
+	
+</head>
+<body>
+
+<div class="wrapper">
+	
+	<div id="header">
+		<h1>8Bit</h1>
+		<h2>maths for robots</h2>
+	</div>
+	
+	<div id="main">
+		<p id="answer">Convert <span></span> to binary:</p>
+		<div id="guess"></div>
+	</div>
+	
+	<div id="buttons">
+		<ul class="buttons">
+			<li><a class="button settings"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFBAcHFBcX7+/vgYODwMHBQ0VFMzY24ODgoaKiYmRk0NDQIyYmcnR0sLGxU1VVkZKS////Gn88nQAAABF0Uk5T/////////////////////wAlrZliAAADQUlEQVR42uya23LiMAyGJZ9PcfL+T1uWpYWW+CDhmtkd645hSD5kyZJ+G443GyyABbAAFsACWAALYAH8uwBWOXmzXYW5AGJLGn6Y8c5OA3BwankagDwH0NMA9DkATAOIBQA7C6DwflCTAEIJQE4C2EoAaRKALAHoSQC+BIBzAIQpAXDSgAxgPULZsvplAOuhYVqNBdCY7pVOSOiwfF8Iu0e0LwFc/7Bx4vpBRegy3G/pmq+/Fi8ApM9HenX/0GFaHDZ94ho+wGPZjQYIho/1ynMBAsIYc0wAM+j9UAtEYOy4dDMcgAADbWcA6JEAKMgADoaaJwPEsQDFOgVzHFB2AUxyQNEFwHcA5utIdhnRfOS7ALgpoL9tb8FzE+EcwDZ3lqeqbzNvQ4ZqFST13xtytkNghCAqcrNYDkOgrwAGRrta3I+BnAMYWA1zKQ/Ol2BnFvfDVuIgC0IalgMqs7SL8uBY2gmDoZa1+g6CG7UYicwbgNV5CoZRHVHLAecuyILVE54EgmcpWInblj//ma1jdqVpR9UvkbECZ8104AI8PSn2jJuJpB3RALokEDkMIPBEoI2Uu0BK6S4ZTP0/AMNiwA0DMHOD8ODJ0XocAO1RPOzalzZy8nCDUR5QyNJCPWk6rwDs9Ias3NB68nguCqNO5DjgT/4Qp+NyeyuZZwmlYQLI+lhgCtmFQADSiURT+azOqKkbQAGTwNMnSuhshboIGjN66AdoPCmeBpRoiAqREISqNeunZye4lrArKWnY1FxQfkdwbZXGUgD2noOJ/bao1vkOWTvTNqJOoRy17tXTFG0rHqhU15upYi3AwQCKWg3lHAdUxvM4xQGVfmAb+f7E6YjyuPcjSx8YGIcbryndfn8BGm15GvN+wz85/apvUVpLOMVDJZzpE9ag56qA32hbw19NKiRsKavtw+tLIJr96x+ErpO0B0nQ5aas1Jr2bCBW3R912rauuZFvUNQRfrYJr19gOGuXIk/IHgZQOVA65gC8/R6RI5/PDgZQ775LdjBqzlgA5MytIwHefqMyMareUID93ZdabTopzTGraQDXXHTSa63xMhtpLXclmM9Zl9sXwAJYAAtgASyABbAA3g7wIcAAFUnrTy8JFxkAAAAASUVORK5CYII%3D" /></a></li>
+			<li><a class="button keyboard_right"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFQTFRFBAcH0NDQFBcXoaKiYmRk7+/vMzY2cnR0U1VVkZKS////CDkDPwAAAAt0Uk5T/////////////wBKTwHyAAABFElEQVR42uzXOQ6DUBAE0fl4web+B3ZsZ3SXTFLkqJ7EX4Y5Ln5GgAABAgQIECBAgAABAgQIECBAgAABAsL31roWsLZtXQlY2wwkmLRPCSbuQ4LJ+4xgij4imKZPCE4DXjOo4DTg8WQF59cALAh2AStIzgFUEJ2EpCC7C0BBeBtygnQewATxREQJ8pEMEhQzISNohlJEUE3FhKAbywFB+V/w/gbM/mfA7ad///MnAPoVgOg3AKRfAJh+DoD6MYDqpwCsHwK4fgYA+xGA7CcAtB8A2P55ANyvAW2//QR1v1yEfb/bhkC/OoiIfnMUI/3iMmL6+XW8H9cCsEeAAAECBAgQIECAAAECBAgQIECAAAECPgIMAGXoZ6/gaO/QAAAAAElFTkSuQmCC" /></a></li>
+			<li><a class="button keyboard_down">0</a></li>
+			<li><a class="button keyboard_up">1</a></li>
+			<li><a class="button keyboard_left"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFBAcHoaKiYmRk0NDQFBcXcnR0sLGx////lsLBhQAAAAh0Uk5T/////////wDeg71ZAAABFklEQVR42uzZMRqCQAwF4QRF7n9jbaXjZb7dZjwA8xcIm1DX5l8JECBAgAABAgQIECBAgAABAgQIECBAAHOZs/cCjqreCfj1Y0FR/VRQWD8UFNfPBAX2I0GR/URQaH85YN6fAYD+CED0JwCkPwAw/RwA9WMA1U8BWD8EcP0MAPYjANlPAGg/ALD954CT7T8H9A1wLJ8LYEFwE7KC5G+ICqIHESnIHsWgIHwZcYL0dYwJ4gMJJciPZJBgcChlBJNjOSIYDSaEYDaaAYLhcHoXnMvH83/B+7V+QdGzPrCi6VGfWFL1pI+s6XrQZxaVnfehVW3HfWpZ/Un7fi8QIECAAAECBAgQIECAAAECBAgQIEDAfsBXgAEA+Yiu6sjbSCcAAAAASUVORK5CYII%3D" /></a></li>
+		<ul>
+	</div>
+	
+	<div id="settings">
+		<form action="" method="post">
+			<div>
+				<select name="bits">
+					<option value="0">0</option>
+				</select>
+			</div>
+		</form>
+	</div>
+	
+</div>
+
+</body>
+</html>
